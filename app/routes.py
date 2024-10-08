@@ -23,15 +23,15 @@ def submit_answer():
 
     # menambahkan rule
     if 80 <= total <= 100:
-        status_psikopat =  "Anda Psikopat Ekstrim"
+        status_psikopat =  "Anda Psikopat Ekstrim, karena anda memiliki sifat seperti tidak adanya rasa bersalah, manipulasi ekstrem, dan pengabaian hak-hak orang lain dengan kecenderungan kekerasan atau perilaku predator. Segera konsultasikan dengan tenaga ahli untuk penanganan lebih lanjut."
     elif 60 <= total <= 79:
-        status_psikopat =  "Anda Psikopat Tinggi"
+        status_psikopat =  "Anda Psikopat Tinggi, karena anda memiliki sifat suka memanipulasi, kurang memiliki empati, dan sering bertindak secara licik untuk mencapai tujuan pribadi. Konsultasi dengan tenaga ahli sangat direkomendasikan untuk mendapatkan pemahaman lebih dalam. "
     elif 40 <= total <= 59:
-        status_psikopat =  "Anda Psikopat Sedang"
+        status_psikopat =  "Anda Psikopat Sedang, Karena berdasarkan tes, anda memiliki perilaku seperti manipulatif dan minim empati dalam situasi tertentu, meskipun mungkin belum ekstrem. Disarankan untuk berkonsultasi dengan tenaga ahli untuk mendapatkan pemahaman lebih dalam."
     elif 20 <= total <= 39:
-        status_psikopat =  "Anda Psikopat Rendah"
+        status_psikopat =  "Anda psikopat rendah, karena anda memiliki sifat seperti sesekali berbohong atau kurang bertanggung jawab, tetapi masih baik dalam interaksi sosial. Konsultasi dengan tenaga ahli untuk mendapatkan pemahaman lebih dalam."
     else:
-        status_psikopat =  "Anda Tidak Menunjukkan Tanda-tanda Psikopat"
+        status_psikopat =  "Anda Tidak Menunjukkan Tanda-tanda Psikopat, anda menunjukkan empati yang baik dan rasa tanggung jawab dalam tindakan sehari-hari. Meski demikian, konsultasi dengan tenaga ahli untuk mendapatkan pemahaman lebih dalam."
 
     return render_template('result.html', answers=answers, total=total, status_psikopat=status_psikopat)
 
