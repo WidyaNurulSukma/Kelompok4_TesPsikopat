@@ -31,9 +31,13 @@
 
   <main>
     <div class="container w-5/5 mx-auto m-6 p-8 h-auto block border rounded-xl shadow-lg bg-gray-900 border-gray-400 onsubmit="return validateForm()">
-
-      <form action="{{ url_for('submit_answer') }}" method="post" class=" rounded-lg p-8 text-justify">
+      
+      <form action="{{ url_for('hasil') }}" method="post" class="rounded-lg p-8 text-justify">
         <h5 class="mb-16 text-white text-3xl font-bold tracking-tight text-center ">PENILAIAN KARAKTER PSIKOPAT</h5>
+        
+         <!-- Input tersembunyi untuk pertanyaan dari halaman pertama
+        <input type="hidden" name="q1" value="{{ request.form.get('q1', 0) }}">
+        <input type="hidden" name="q2" value="{{ request.form.get('q2', 0) }}"> -->
 
           <!-- Pertayaan 1 -->
           <fieldset class="mb-14">
@@ -65,7 +69,7 @@
             </div>
              <div class="mb-2">
               <input type="radio" name="q2" id="q2b" value="5" class="mr-2">
-              <label class="text-white !important" for="q2b">mendorong orang disebelah anda</label>
+              <label class="text-white !important" for="q2b">Mendorong orang disebelah anda</label>
             </div>
           </fieldset>
 
@@ -128,7 +132,7 @@
             </div>
              <div class="mb-2">
               <input type="radio" name="q5" id="q5c" value="5" class="mr-2">
-              <label class="text-white !important" for="q5c">melepaskan penderitaan</label>
+              <label class="text-white !important" for="q5c">Melepaskan penderitaan</label>
             </div>
              <div class="mb-2">
               <input type="radio" name="q5" id="q5d" value="0" class="mr-2">
@@ -136,15 +140,6 @@
             </div>
           </fieldset>
 
-        <ul>
-            <li><a href="#" class="prev">< Prev</a></li>
-            <li class="pageNumber active"><a href="#">1</a></li>
-            <li class="pageNumber"><a href="#">2</a></li>
-            <li class="pageNumber"><a href="#">3</a></li>
-            <li class="pageNumber"><a href="#">4</a></li>
-            <li><a href="#" class="next">Next ></a></li>
-        </ul>  
-          
           <!-- Pertayaan 6 -->
           <fieldset class="mb-14">
             <legend class="mb-2 text-gray-200">6. Seseorang yang sangat anda benci, misalkan orang tersebut pernah melakukan kejahatan terhadap keluarga anda. Anda melihat orang tersebut bergelantungan di tebing dan anda harus membunuh orang tersebut. Bagaimana cara anda membunuh orang tersebut?</legend>
@@ -154,7 +149,7 @@
             </div>
              <div class="mb-2">
               <input type="radio" name="q6" id="q6b" value="5" class="mr-2">
-              <label class="text-white !important" for="q6b">melepaskan jari satu-persatu</label>
+              <label class="text-white !important" for="q6b">Melepaskan jari satu-persatu</label>
             </div>
              <div class="mb-2">
               <input type="radio" name="q6" id="q6c" value="0" class="mr-2">
@@ -175,7 +170,7 @@
             </div>
              <div class="mb-2">
               <input type="radio" name="q7" id="q7b" value="5" class="mr-2">
-              <label class="text-white !important" for="q7b">menunggu</label>
+              <label class="text-white !important" for="q7b">Menunggu</label>
             </div>
              <div class="mb-2">
               <input type="radio" name="q7" id="q7c" value="0" class="mr-2">
@@ -204,7 +199,7 @@
             </div>
              <div class="mb-2">
               <input type="radio" name="q8" id="q8d" value="5" class="mr-2">
-              <label class="text-white !important" for="q8d">anda sendiri</label>
+              <label class="text-white !important" for="q8d">Anda sendiri</label>
             </div>
              <div class="mb-2">
               <input type="radio" name="q8" id="q8e" value="0" class="mr-2">
@@ -254,222 +249,7 @@
             </div>
           </fieldset>
 
-          <!-- Pertayaan 11 -->
-          <fieldset class="mb-14">
-            <legend class="mb-2 text-gray-200">11. Ada seorang bocah memelihara seekor ikan lou han. Suatu hari ikan tersebut mati dan mamanya sesudah itu membelikan coklat untuk anak tersebut yang ukurannya mirip dengan ikan lou han. Tiba-tiba keesokan harinya bocah tersebut membunuh kakak kandungnya sendiri. Kira-kira apa motif bocah ini membunuh kakak kandungnya sendiri ?</legend>
-             <div class="mb-2">
-              <input type="radio" name="q11" id="q11a" value="0" class="mr-2">
-              <label class="text-white !important" for="q11a">Kakaknya membunuh ikannya</label>
-            </div>
-             <div class="mb-2">
-              <input type="radio" name="q11" id="q11b" value="0" class="mr-2">
-              <label class="text-white !important" for="q11b">Coklatnya dimakan kakaknya</label>
-            </div>
-             <div class="mb-2">
-              <input type="radio" name="q11" id="q11c" value="0" class="mr-2">
-              <label class="text-white !important" for="q11c">Ingin dapat coklat lagi</label>
-            </div>
-             <div class="mb-2">
-              <input type="radio" name="q11" id="q11d" value="5" class="mr-2">
-              <label class="text-white !important" for="q11d">Ingin dapat coklat sebesar kakaknya</label>
-            </div>
-          </fieldset>
-
-          <!-- Pertayaan 12 -->
-          <fieldset class="mb-14">
-            <legend class="mb-2 text-gray-200">12. Bayangkan anda tinggal di suatu rumah yang terletak di tengah-tengah hutan dan tidak ada rumah yang lainnya. Karena rumah anda sedang kotor, anda memutuskan untuk membersihkan rumah. Karena rumah tersebut cukup besar, dari pagi sampai malam tidak selesai-selesai. Akhirnya di malam hari, paling tidak anda sudah berhasil membersihkan (hanya) ruang tengah. Setelah selesai bersih-bersih, sekarang anda ingin menata barang-barang. Kebetulan ketika anda membersihkan guci porselen, tiba-tiba ada suara dari kamar tidur anda. Karena anda kaget, guci tersebut jatuh dan pecah. Setelah itu kaki anda berdarah-darah. Terdapat 5 pilihan yang dapat anda lakukan. Apa yang anda akan lakukan?</legend>
-             <div class="mb-2">
-              <input type="radio" name="q12" id="q12a" value="5" class="mr-2">
-              <label class="text-white !important" for="q12a">mengambil kotak P3K</label>
-            </div>
-             <div class="mb-2">
-              <input type="radio" name="q12" id="q12b" value="0" class="mr-2">
-              <label class="text-white !important" for="q12b">Mengintip kamar tidur</label>
-            </div>
-             <div class="mb-2">
-              <input type="radio" name="q12" id="q12c" value="5" class="mr-2">
-              <label class="text-white !important" for="q12c">menyapu pecahan guci</label>
-            </div>
-             <div class="mb-2">
-              <input type="radio" name="q12" id="q12d" value="0" class="mr-2">
-              <label class="text-white !important" for="q12d">Memegang pentungan</label>
-            </div>
-             <div class="mb-2">
-              <input type="radio" name="q12" id="q12e" value="0" class="mr-2">
-              <label class="text-white !important" for="q12e">Keluar dari rumah</label>
-            </div>
-          </fieldset>
-
-          <!-- Pertayaan 13 -->
-          <fieldset class="mb-14">
-            <legend class="mb-2 text-gray-200">13. Bayangkan anda menjadi seorang pembunuh dan memiliki senjata. Didepan anda ada 3 tawanan yang bisa anda bunuh. Berapa orang yang akan anda bunuh dan apa alasannya?</legend>
-             <div class="mb-2">
-              <input type="radio" name="q13" id="q13a" value="5" class="mr-2">
-              <label class="text-white !important" for="q13a">Membunuh 2 tawanan dan membiarkan 1 tawanan takut</label>
-            </div>
-             <div class="mb-2">
-              <input type="radio" name="q13" id="q13b" value="0" class="mr-2">
-              <label class="text-white !important" for="q13b">Membunuh 1 tawanan dan membiarkan 2 tawanan takut </label>
-            </div>
-             <div class="mb-2">
-              <input type="radio" name="q13" id="q13c" value="0" class="mr-2">
-              <label class="text-white !important" for="q13c">Membunuh semuanya untuk kebahagiaannya sendiri</label>
-            </div>
-          </fieldset>
-
-          <!-- Pertayaan 14 -->
-          <fieldset class="mb-14">
-            <legend class="mb-2 text-gray-200">14. Bayangkan anda sedang tidur dan terbangun karena sebuah mimpi buruk. Mimpi buruk tersebut terasa sangat nyata dan menyebabkan anda sangat ketakutan. Tubuh anda penuh dengan keringat dan anda merasa kedinginan. Apa yang akan anda lakukan di rumah?</legend>
-             <div class="mb-2">
-              <input type="radio" name="q14" id="q14a" value="5" class="mr-2">
-              <label class="text-white !important" for="q14a">pergi ke kamar mandi / bathtub</label>
-            </div>
-             <div class="mb-2">
-              <input type="radio" name="q14" id="q14b" value="0" class="mr-2">
-              <label class="text-white !important" for="q14b">Menyalakan tv dan semua lampu</label>
-            </div>
-             <div class="mb-2">
-              <input type="radio" name="q14" id="q14c" value="0" class="mr-2">
-              <label class="text-white !important" for="q14c">Pergi ke ruang anggota keluarga yang belum tidur</label>
-            </div>
-             <div class="mb-2">
-              <input type="radio" name="q14" id="q14d" value="0" class="mr-2">
-              <label class="text-white !important" for="q14d">Telpon kawan akrab anda</label>
-            </div>
-          </fieldset>
-
-          <!-- Pertayaan 15 -->
-          <fieldset class="mb-14">
-            <legend class="mb-2 text-gray-200">15. Suatu ketika anda sedang menonton film horror. Tiba-tiba ada satu adegan yang membuat anda merinding.  Adegan apakah itu ? Terdapat 4 pilihan.</legend>
-             <div class="mb-2">
-              <input type="radio" name="q15" id="q15a" value="0" class="mr-2">
-              <label class="text-white !important" for="q15a">Adegan pembunuhan</label>
-            </div>
-             <div class="mb-2">
-              <input type="radio" name="q15" id="q15b" value="5" class="mr-2">
-              <label class="text-white !important" for="q15b">Pembunuh sedang mengejar korban</label>
-            </div>
-             <div class="mb-2">
-              <input type="radio" name="q15" id="q15c" value="0" class="mr-2">
-              <label class="text-white !important" for="q15c">Mayat jatuh dari ketinggian</label>
-            </div>
-             <div class="mb-2">
-              <input type="radio" name="q15" id="q15d" value="0" class="mr-2">
-              <label class="text-white !important" for="q15d">Orang bunuh diri</label>
-            </div>
-          </fieldset>
-
-          <!-- Pertayaan 16 -->
-          <fieldset class="mb-14">
-            <legend class="mb-2 text-gray-200">16. Suatu hari ada maling masuk ke dalam rumah anda dan maling tersebut membunuh seluruh keluarga anda. Anda adalah satu-satunya yang masih hidup dan berhadapan dengan pelaku tersebut. Uniknya saat itu maling tersebut tidak membunuh anda dan membiarkan anda hidup. Apa alasan maling tersebut?</legend>
-             <div class="mb-2">
-              <input type="radio" name="q16" id="q16a" value="0" class="mr-2">
-              <label class="text-white !important" for="q16a">Menanyakan barang berharga</label>
-            </div>
-             <div class="mb-2">
-              <input type="radio" name="q16" id="q16b" value="0" class="mr-2">
-              <label class="text-white !important" for="q16b">Meminta uang yang ada</label>
-            </div>
-             <div class="mb-2">
-              <input type="radio" name="q16" id="q16c" value="5" class="mr-2">
-              <label class="text-white !important" for="q16c">Membiarkan anda ketakutan</label>
-            </div>
-             <div class="mb-2">
-              <input type="radio" name="q16" id="q16d" value="0" class="mr-2">
-              <label class="text-white !important" for="q16d">Kesalahan identitas</label>
-            </div>
-          </fieldset>
-
-          <!-- Pertayaan 17 -->
-          <fieldset class="mb-14">
-            <legend class="mb-2 text-gray-200">17. Terjadi sebuah kasus pemerkosaan di apartment tua, ternyata perempuan yang menjadi korban tersebut telah membiarkan pintu gerbang terbuka lama dan ia tertidur pulas di rumahnya. Saat itulah pelaku masuk ke rumah tersebut dan memperkosanya. Apa yang terpikir di benak anda mendengar kasus tersebut? Terdapat 4 pilihan.</legend>
-             <div class="mb-2">
-              <input type="radio" name="q17" id="q17a" value="0" class="mr-2">
-              <label class="text-white !important" for="q17a">Korbannya yang salah karena membiarkan gerbang terbuka</label>
-            </div>
-             <div class="mb-2">
-              <input type="radio" name="q17" id="q17b" value="0" class="mr-2">
-              <label class="text-white !important" for="q17b">Pelaku kasus tersebut yang salah karena masuk</label>
-            </div>
-             <div class="mb-2">
-              <input type="radio" name="q17" id="q17c" value="5" class="mr-2">
-              <label class="text-white !important" for="q17c">Keduanya tidak salah, situasi yang memungkinkan itu terjadi</label>
-            </div>
-             <div class="mb-2">
-              <input type="radio" name="q17" id="q17d" value="0" class="mr-2">
-              <label class="text-white !important" for="q17d">Keduanya salah</label>
-            </div>
-          </fieldset>
-
-          <!-- Pertayaan 18 -->
-          <fieldset class="mb-14">
-            <legend class="mb-2 text-gray-200">18. Bayangkan anda sedang berbelanja di supermarket yang besar. Tiba-tiba terdengar bunyi ledakan dan menyebabkan gedung runtuh dan kebakaran. Anda langsung tergesa-gesa untuk keluar dari tempat tersebut dan ketika anda ingin keluar anda menemukan 3 orang yang tertimpa batu besar. Kemudian anda ingin membantu 3 orang tersebut, namun saat itu juga anda melihat di arah berlawanan terdapat teman akrab anda sedang tertimpa batu juga. Kondisi saat itu mengharuskan anda untuk keluar dengan cepat karena bara api yang membesar. Siapa yang akan anda bantu?</legend>
-             <div class="mb-2">
-              <input type="radio" name="q18" id="q18a" value="5" class="mr-2">
-              <label class="text-white !important" for="q18a">3 orang yang tidak anda kenal</label>
-            </div>
-             <div class="mb-2">
-              <input type="radio" name="q18" id="q18b" value="0" class="mr-2">
-              <label class="text-white !important" for="q18b">Seorang teman akrab anda</label>
-            </div>
-             <div class="mb-2">
-              <input type="radio" name="q18" id="q18c" value="0" class="mr-2">
-              <label class="text-white !important" for="q18c">Berusaha menyelamatkan semua yang dapat mengakibatkan nyawa beresiko
-              </label>
-            </div>
-          </fieldset>
-
-          <!-- Pertayaan 19 -->
-          <fieldset class="mb-14">
-            <legend class="mb-2 text-gray-200">19. Bayangkan anda memiliki seorang teman akrab dan suatu hari anda mendengar teman anda mati tertikam pisau. Anda sangat sedih dan berpikiran ingin balas dendam. Tak lama kemudian anda menemukan identitas pelaku tersebut dan anda tidak melaporkan ke polisi melainkan anda berencana untuk langsung membunuhnya. Bagaimana anda akan membunuh pelaku tersebut? Terdapat 7 pilihan jawaban.</legend>
-             <div class="mb-2">
-              <input type="radio" name="q19" id="q19a" value="0" class="mr-2">
-              <label class="text-white !important" for="q19a">Menikam perut dengan pisau</label>
-            </div>
-             <div class="mb-2">
-              <input type="radio" name="q19" id="q19b" value="5" class="mr-2">
-              <label class="text-white !important" for="q19b">Membunuhnya secara perlahan dengan memotong kakinya</label>
-            </div>
-             <div class="mb-2">
-              <input type="radio" name="q19" id="q19c" value="5" class="mr-2">
-              <label class="text-white !important" for="q19c">Membunuhnya dengan memotong-motong bagian tubuh</label>
-            </div>
-             <div class="mb-2">
-              <input type="radio" name="q19" id="q19d" value="5" class="mr-2">
-              <label class="text-white !important" for="q19d">Bunuh dahulu lalu potong lehernya</label>
-            </div>
-             <div class="mb-2">
-              <input type="radio" name="q19" id="q19e" value="0" class="mr-2">
-              <label class="text-white !important" for="q19e">Menusuk jantungnya</label>
-            </div>
-             <div class="mb-2">
-              <input type="radio" name="q19" id="q19f" value="5" class="mr-2">
-              <label class="text-white !important" for="q19f">Bunuh dahulu lalu dibakar mayatnya</label>
-            </div>
-          </fieldset>
-
-          <!-- Pertayaan 20 -->
-          <fieldset class="mb-14">
-            <legend class="mb-2 text-gray-200">20. Ada kakak beradik keduanya perempuan. Mereka pergi ke acara pemakaman ayah mereka bersama-sama. Disana mereka bertemu seorang lelaki tampan dan mereka langsung jatuh cinta terhadap laki-laki tersebut. Berselang hari kemudian si adik membunuh si kakak. Apa alasannya?</legend>
-             <div class="mb-2">
-              <input type="radio" name="q20" id="q20a" value="0" class="mr-2">
-              <label class="text-white !important" for="q20a">Bersaing untuk cinta</label>
-            </div>
-             <div class="mb-2">
-              <input type="radio" name="q20" id="q20b" value="5" class="mr-2">
-              <label class="text-white !important" for="q20b">ingin melihat laki-laki itu lagi</label>
-            </div>
-             <div class="mb-2">
-              <input type="radio" name="q20" id="q20c" value="0" class="mr-2">
-              <label class="text-white !important" for="q20c">Bersaing untuk mendapatkan perhatian</label>
-            </div>
-             <div class="mb-2">
-              <input type="radio" name="q20" id="q20d" value="0" class="mr-2">
-              <label class="text-white !important" for="q20d">Adiknya cemburu</label>
-            </div>
-          </fieldset>
-
-
+          
           <div class="flex justify-center">
             <button type="submit" class="text-white bg-grey-500 hover:bg-grey-600 focus:ring-4 focus:ring-grey-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2" style="border: 2px solid white;">Kirim</button>
         </div>
